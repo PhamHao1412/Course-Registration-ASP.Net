@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PHAMANHHAO.Scripts.HocPhan>
+
+@{
+    ViewBag.Title = "HocPhan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HocPhan</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaHP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenHP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoTinChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaHP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenHP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoTinChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "DangKi",
+                        new { @id = item.MaHP, @strURL = Request.Url.ToString() }) " ,>Đăng ký</a>
+
+        </td>
+    </tr>
+}
+
+</table>

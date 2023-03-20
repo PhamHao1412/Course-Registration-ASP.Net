@@ -1,0 +1,23 @@
+﻿@model PHAMANHHAO.Scripts.SinhVien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+<h4>SinhVien</h4>
+
+<div class="col-sm-12 col=md-12">
+    <div class="caption">
+        <p>Họ tên: @Html.DisplayFor(model => model.HoTen)</p>
+        <p>Giới tính: @Html.DisplayFor(model => model.GioiTinh)</p>
+        <p>Ngáy sinh: @Html.DisplayFor(model => model.NgaySinh)</p>
+        <img src="/@Html.DisplayFor(model => model.Hinh)" alt="thumbnail" />
+        <p>Mã ngành: @Html.DisplayFor(model => model.MaNganh)</p>
+
+        <p>
+            @Html.ActionLink("Back", "Index", "", new { @class = "btn btn-info" })
+        </p>
+    </div>
+</div>

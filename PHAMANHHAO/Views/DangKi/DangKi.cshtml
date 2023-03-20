@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PHAMANHHAO.Models.Hocphan>
+
+@{
+    ViewBag.Title = "DangKi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DangKi</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.MaHP)</th>
+        <th>@Html.DisplayNameFor(model => model.TenHP)</th>
+        <th>@Html.DisplayNameFor(model => model.SoTC)</th>
+        <th></th>
+        <th></th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaHP)</td>
+
+            <td>@Html.DisplayFor(modelItem => item.TenHP)</td>
+            <td>@Html.DisplayFor(modelItem => item.SoTC)</td>
+
+            <td>
+                @Html.ActionLink("Xóa", "XoaGiohang", new { @id = item.MaHP })
+            </td>
+
+
+        </tr>
+
+    }
+    <tr style="font-weight:bold; text-align:left; color:red">
+        <td colspan="2">Số học phần: @ViewBag.SoHocPhan</td>
+
+    </tr>
+    <tr style="font-weight:bold; text-align:left; color:red">
+        <td colspan="2">Tổng số tín chỉ: @ViewBag.TongSoTinChi</td>
+    </tr>
+    <tr style="font-weight:bold; color:blue;text-align:right">
+        <td colspan="5">
+            @Html.ActionLink("Xóa Đăng kí", "XoaTatCaGioHang")
+        </td>
+    </tr>
+    <tr style="font-weight:bold; color:yellow;text-align:right">
+        <td colspan="5">
+            @Html.ActionLink("Lưu đăng kí", "LuuDangKi", "DangKi")
+        </td>
+    </tr>
+</table>
